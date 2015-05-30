@@ -6,7 +6,9 @@
 package song;
 
 import java.io.FileNotFoundException;
-import static org.junit.Assert.assertTrue;
+
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 /**
@@ -22,12 +24,23 @@ public class SongListTest {
      * @throws java.io.FileNotFoundException
      */
     @Test
-    public void testPrint() throws FileNotFoundException {
+    public final void testPrint() throws FileNotFoundException {
         SongList instance = new SongList("songs.txt");
         instance.sort();
         instance.print();
         // Make sure output is is in alphabetical order yourself ;)
         boolean wat = true;
         assertTrue(wat);
+    }
+
+    /**
+     * Test no file exception.
+     * 
+     * @throws java.io.FileNotFoundException
+     */
+    @Test(expected = FileNotFoundException.class)
+    public final void testBadFile() throws FileNotFoundException {
+        new SongList("");
+        fail("Should have gotten an exception");
     }
 }

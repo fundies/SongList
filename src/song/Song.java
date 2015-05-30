@@ -14,38 +14,38 @@ public class Song implements Comparable<Song> {
     private final int rank;
 
     /**
-     * get Rank
-     *
+     * Return Rank.
+     * 
      * @return rank
      */
-    public int getRank() {
+    public final int getRank() {
         return rank;
     }
 
     /**
-     * Return Song Title
-     *
+     * Return Song Title.
+     * 
      * @return song title
      */
-    public String getTitle() {
+    public final String getTitle() {
         return title;
     }
 
     /**
-     * Return Artist
-     *
+     * Return Artist.
+     * 
      * @return artist
      */
-    public String getArtist() {
+    public final String getArtist() {
         return artist;
     }
 
     /**
-     * Construct a song
-     * Parses the text file...
+     * Construct a song Parses the text file...
+     * 
      * @param song string consisting of artist and title
      */
-    public Song(String song) {
+    public Song(final String song) {
 
         Scanner sc = new Scanner(song);
 
@@ -55,7 +55,7 @@ public class Song implements Comparable<Song> {
         sc.useDelimiter("-");
         artist = sc.next().trim();
         title = sc.next().trim();
-        
+
         sc.close();
 
     }
@@ -63,25 +63,25 @@ public class Song implements Comparable<Song> {
     /**
      * Constructor Homework Actually wanted...
      *
-     * @param rank rank
-     * @param title title
-     * @param artist artist
+     * @param r rank
+     * @param t title
+     * @param a artist
      */
-    public Song(int rank, String title, String artist) {
-        this.rank = rank;
-        this.title = title;
-        this.artist = artist;
+    public Song(final int r, final String t, final String a) {
+        rank = r;
+        title = t;
+        artist = a;
     }
 
     /**
-     * Override for comparisons
-     *
+     * Override for comparisons.
+     * 
      * @param t song
      * @return alphabetical
      */
     @Override
-    public int compareTo(Song t) {
-        return this.title.compareTo(t.title);
+    public final int compareTo(final Song t) {
+        return title.compareTo(t.title);
     }
 
 }

@@ -13,15 +13,15 @@ import java.util.Scanner;
  */
 public class SongList {
 
-    private ArrayList<Song> songs = new ArrayList<>();
+    private ArrayList<Song> songs = new ArrayList<Song>();
 
     /**
-     * Construct Music Library from text file
+     * Construct Music Library from text file.
      *
      * @param fpath path to file
      * @throws java.io.FileNotFoundException
      */
-    public SongList(String fpath) throws FileNotFoundException {
+    public SongList(final String fpath) throws FileNotFoundException {
         File file = new File(fpath);
 
         try {
@@ -31,27 +31,28 @@ public class SongList {
                 songs.add(song);
             }
             sc.close();
-        } 
+        }
         catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println(e.toString());
+            throw e;
         }
 
     }
 
     /**
-     * Sort Songs in descending alphabetical order
+     * Sort Songs in descending alphabetical order.
      */
-    public void sort() {
+    public final void sort() {
         Collections.sort(songs);
     }
 
     /**
-     * Print the list of songs
+     * Print the list of songs.
      */
-    public void print() {
+    public final void print() {
         for (int i = 0; i < songs.size(); ++i) {
             Song s = songs.get(i);
-            System.out.println(s.getTitle() + " by " + s.getArtist() 
+            System.out.println(s.getTitle() + " by " + s.getArtist()
                     + " ranked: #" + s.getRank());
         }
     }
